@@ -27,7 +27,21 @@ public class Usuario {
     private Boolean enabled;
     private String foto;
     private String rol;
+    @Temporal(TemporalType.DATE)
     private LocalDateTime fechaCreacion;
-    @ManyToMany(mappedBy = "usuario")
+
+
+    @OneToMany(mappedBy = "usuario")
     private List<Sugerencia> sugerencias;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Mensaje> mensajes;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "usuario_partida", joinColumns = @JoinColumn(name = "id_usuario", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "id_partida", referencedColumnName = "id")
+    )
+    private List<Partida> partidas;
 }

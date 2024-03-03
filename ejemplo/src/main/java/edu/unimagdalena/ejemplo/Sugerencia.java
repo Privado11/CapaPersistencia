@@ -17,8 +17,11 @@ public class Sugerencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descripcion;
+
+    @Temporal(TemporalType.DATE)
     private LocalDateTime fechaCreacion;
-    @ManyToMany
-    @JoinTable(name = "usuarios", joinColumns = @JoinColumn(name = "id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id", referencedColumnName = "id"))
+
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 }

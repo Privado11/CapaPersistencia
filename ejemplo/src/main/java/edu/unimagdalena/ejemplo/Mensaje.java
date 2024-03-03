@@ -18,6 +18,13 @@ public class Mensaje {
     private Long id;
     private String creador;
     private String destinatario;
-    private LocalDateTime fecha;
     private String contenido;
+
+    @Temporal(TemporalType.DATE)
+    private LocalDateTime fecha;
+
+
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = false)
+    private Usuario usuario;
 }

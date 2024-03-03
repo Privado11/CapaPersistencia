@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "partidas")
@@ -20,10 +21,19 @@ public class Partida {
     private String deporte;
     private String ciudad;
     private String provincia;
-    private LocalDateTime fecha;
-    private LocalDateTime horaComienzo;
-    private LocalDateTime horaFinal;
     private Integer participantes;
     private Integer suplentes;
     private String comentarios;
+
+    @Temporal(TemporalType.DATE)
+    private LocalDateTime fecha;
+
+    @Temporal(TemporalType.TIME)
+    private LocalDateTime horaComienzo;
+
+    @Temporal(TemporalType.TIME)
+    private LocalDateTime horaFinal;
+
+    @ManyToMany(mappedBy = "partidas")
+    private List<Usuario> usuarios;
 }
