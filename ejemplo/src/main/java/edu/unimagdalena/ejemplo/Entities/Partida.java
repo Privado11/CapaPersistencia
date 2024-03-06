@@ -1,4 +1,4 @@
-package edu.unimagdalena.ejemplo;
+package edu.unimagdalena.ejemplo.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;
