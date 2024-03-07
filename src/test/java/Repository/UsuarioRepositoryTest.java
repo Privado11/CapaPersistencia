@@ -1,32 +1,25 @@
 package Repository;
 
+import Repository.AbstractIntegrationDBTest;
+import Repository.UsuarioRepository;
 import edu.unimagdalena.ejemplo.Entities.Usuario;
-import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import static org.junit.jupiter.api.Assertions.*;
 
-
-class UsuarioRepositoryTest extends AbstractIntegrationDBTest{
-
-    UsuarioRepository usuarioRepository;
+class UsuarioRepositoryTest extends AbstractIntegrationDBTest {
+     UsuarioRepository  usuarioRepository;
 
     public UsuarioRepositoryTest(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 
-    @BeforeEach
-    void setUp() {
-    }
-
     @Test
-    void givenAnUser_whenSave_thenUserWithId(){
-        //given
-        Usuario usuario = Usuario.builder()
-                .nombre("Walter")
-                .apellido("Jiménez")
-                .username("privado")
-                .password("Privado11")
+    void musuarioNuevo(){
+        Usuario usuario = usuarioRepository.build()
+                .nombre("Jimenes")
                 .build();
-
+        usuarioRepository.save(usuario);
     }
 }
