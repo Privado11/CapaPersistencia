@@ -1,5 +1,6 @@
-package Repository;
+package edu.unimagdalena.ejemplo.Repository;
 
+import Repository.MensajeRepository;
 import edu.unimagdalena.ejemplo.Entities.Mensaje;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

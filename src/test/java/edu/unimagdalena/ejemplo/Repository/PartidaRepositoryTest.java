@@ -1,9 +1,6 @@
-package Repository;
+package edu.unimagdalena.ejemplo.Repository;
 
-import Repository.AbstractIntegrationDBTest;
 import Repository.PartidaRepository;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class PartidaRepositoryTest extends AbstractIntegrationDBTest {
     PartidaRepository partidaRepository;
