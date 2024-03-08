@@ -1,12 +1,8 @@
 package edu.unimagdalena.ejemplo.Repository;
 
-import Repository.MensajeRepository;
 import edu.unimagdalena.ejemplo.Entities.Mensaje;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MensajeRepositoryTest {
 

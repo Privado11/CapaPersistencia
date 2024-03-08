@@ -1,7 +1,5 @@
 package edu.unimagdalena.ejemplo.Repository;
 
-import Repository.SugerenciaRepository;
-
 class SugerenciaRepositoryTest extends AbstractIntegrationDBTest {
     SugerenciaRepository sugerenciaRepository;
 
