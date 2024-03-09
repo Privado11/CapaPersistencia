@@ -11,7 +11,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @DataJpaTest
 
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public abstract class AbstractIntegrationDBTest {
+public abstract class AbstractIntegrationDBTest extends CreateEntitiesTest{
     @Container
     @ServiceConnection
     static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:15-alpine");
