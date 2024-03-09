@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -29,9 +28,6 @@ public class Usuario {
     private Boolean enabled;
     private String foto;
     private String rol;
-
-
-
 
     @OneToMany(mappedBy = "usuario")
     private List<Sugerencia> sugerencias;

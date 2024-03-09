@@ -3,7 +3,6 @@ package edu.unimagdalena.ejemplo.Entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity

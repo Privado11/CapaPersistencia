@@ -1,7 +1,6 @@
 package edu.unimagdalena.ejemplo.Repository;
 
 import edu.unimagdalena.ejemplo.Entities.Partida;
-import edu.unimagdalena.ejemplo.Entities.Usuario;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,8 @@ class PartidaRepositoryTest extends AbstractIntegrationDBTest {
     PartidaRepository partidaRepository;
 
     @Autowired
-    public PartidaRepositoryTest(PartidaRepository partidaRepository) {
+    public PartidaRepositoryTest(PartidaRepository partidaRepository, UsuarioRepository usuarioRepository) {
+        super(usuarioRepository);
         this.partidaRepository = partidaRepository;
     }
 
@@ -29,7 +29,6 @@ class PartidaRepositoryTest extends AbstractIntegrationDBTest {
                 .creador("Walter")
                 .deporte("Futbol")
                 .build();
-        partidaRepository.save(partida2);
         partidaRepository.save(partida2);
         partidaRepository.flush();
     }

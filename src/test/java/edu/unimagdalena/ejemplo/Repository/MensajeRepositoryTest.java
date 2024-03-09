@@ -10,13 +10,16 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class MensajeRepositoryTest {
+class MensajeRepositoryTest extends AbstractIntegrationDBTest{
 
     MensajeRepository mensajeRepository;
+
     @Autowired
-    public MensajeRepositoryTest(MensajeRepository mensajeRepository) {
+    public MensajeRepositoryTest(MensajeRepository mensajeRepository, UsuarioRepository usuarioRepository) {
+        super(usuarioRepository);
         this.mensajeRepository = mensajeRepository;
     }
+
 
     void initMockMensajes(){
         Mensaje mensaje = Mensaje.builder()
@@ -47,6 +50,7 @@ class MensajeRepositoryTest {
                 .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas...")
+                .usuario(createUser())
                 .build();
         //when
         Mensaje userSaved = mensajeRepository.save(mensaje);
@@ -55,13 +59,14 @@ class MensajeRepositoryTest {
 
     }
     @Test
-    @DisplayName("dado un conjunto de usuarios al buscarlo todos obtenemos la lista de los usuarios en la base de datos")
+    @DisplayName("dado un conjunto de ceradores de mens al buscarlo todos obtenemos la lista de los usuarios en la base de datos")
     void shouldGetAllUsers(){
         //GIVEN
         Mensaje mensaje = Mensaje.builder()
                 .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas...")
+                .usuario(createUser())
                 .build();
         mensajeRepository.save(mensaje);
 
@@ -69,6 +74,7 @@ class MensajeRepositoryTest {
                 .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas 2...")
+                .usuario(createUser())
                 .build();
         mensajeRepository.save(mensaje2);
         mensajeRepository.flush();
@@ -79,17 +85,20 @@ class MensajeRepositoryTest {
         assertThat(mensajes).hasSize(2);
     }
     @Test
-    void givenUsuarios_whenBuscarPorNombreyApellido_thenObtienesUnaListaDeUsuarios(){
+    void givenMensaje_whenBuscarPorCreador_thenObtienesUnaListaDeMensajes(){
         Mensaje mensaje = Mensaje.builder()
                 .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas...")
+                .usuario(createUser())
                 .build();
         mensajeRepository.save(mensaje);
+
         Mensaje mensaje2 = Mensaje.builder()
                 .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas 2...")
+                .usuario(createUser())
                 .build();
         mensajeRepository.save(mensaje2);
 

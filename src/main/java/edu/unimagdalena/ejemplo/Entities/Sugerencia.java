@@ -3,7 +3,6 @@ package edu.unimagdalena.ejemplo.Entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "sugerencias")
@@ -20,6 +19,6 @@ public class Sugerencia {
 
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false)
+    @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 }
