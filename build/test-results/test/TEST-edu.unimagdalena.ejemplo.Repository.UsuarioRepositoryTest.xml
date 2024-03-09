@@ -1,154 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.unimagdalena.ejemplo.Repository.UsuarioRepositoryTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-03-08T23:43:52" hostname="unimagdalena-HP-Elite-SFF-600-G9-Desktop-PC" time="0.001">
+<testsuite name="edu.unimagdalena.ejemplo.Repository.UsuarioRepositoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-03-09T00:37:01" hostname="unimagdalena-HP-Elite-SFF-600-G9-Desktop-PC" time="0.394">
   <properties/>
-  <testcase name="initializationError" classname="edu.unimagdalena.ejemplo.Repository.UsuarioRepositoryTest" time="0.001">
-    <failure message="java.lang.IllegalStateException: Could not find a valid Docker environment. Please see logs and check configuration" type="java.lang.IllegalStateException">java.lang.IllegalStateException: Could not find a valid Docker environment. Please see logs and check configuration
-	at org.testcontainers.dockerclient.DockerClientProviderStrategy.lambda$getFirstValidStrategy$7(DockerClientProviderStrategy.java:277)
-	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
-	at org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy(DockerClientProviderStrategy.java:268)
-	at org.testcontainers.DockerClientFactory.getOrInitializeStrategy(DockerClientFactory.java:152)
-	at org.testcontainers.DockerClientFactory.client(DockerClientFactory.java:194)
-	at org.testcontainers.DockerClientFactory$1.getDockerClient(DockerClientFactory.java:106)
-	at com.github.dockerjava.api.DockerClientDelegate.authConfig(DockerClientDelegate.java:109)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:332)
-	at org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.start(TestcontainersExtension.java:280)
-	at org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.access$200(TestcontainersExtension.java:267)
-	at org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$null$4(TestcontainersExtension.java:82)
-	at org.junit.platform.engine.support.store.NamespacedHierarchicalStore.lambda$getOrComputeIfAbsent$5(NamespacedHierarchicalStore.java:147)
-	at org.junit.platform.engine.support.store.NamespacedHierarchicalStore$MemoizingSupplier.computeValue(NamespacedHierarchicalStore.java:372)
-	at org.junit.platform.engine.support.store.NamespacedHierarchicalStore$MemoizingSupplier.get(NamespacedHierarchicalStore.java:361)
-	at org.junit.platform.engine.support.store.NamespacedHierarchicalStore$StoredValue.evaluate(NamespacedHierarchicalStore.java:308)
-	at org.junit.platform.engine.support.store.NamespacedHierarchicalStore$StoredValue.access$200(NamespacedHierarchicalStore.java:287)
-	at org.junit.platform.engine.support.store.NamespacedHierarchicalStore.getOrComputeIfAbsent(NamespacedHierarchicalStore.java:149)
-	at org.junit.jupiter.engine.execution.NamespaceAwareStore.lambda$getOrComputeIfAbsent$2(NamespaceAwareStore.java:57)
-	at org.junit.jupiter.engine.execution.NamespaceAwareStore.accessStore(NamespaceAwareStore.java:90)
-	at org.junit.jupiter.engine.execution.NamespaceAwareStore.getOrComputeIfAbsent(NamespaceAwareStore.java:57)
-	at org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$startContainers$5(TestcontainersExtension.java:82)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testcontainers.junit.jupiter.TestcontainersExtension.startContainers(TestcontainersExtension.java:82)
-	at org.testcontainers.junit.jupiter.TestcontainersExtension.beforeAll(TestcontainersExtension.java:56)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllCallbacks$12(ClassBasedTestDescriptor.java:396)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllCallbacks(ClassBasedTestDescriptor.java:396)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:212)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:85)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:148)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-	Suppressed: org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=postgres:15-alpine, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@28fa700e)
-		at app//org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1367)
-		at app//org.springframework.boot.testcontainers.service.connection.ServiceConnectionContextCustomizerFactory.createSource(ServiceConnectionContextCustomizerFactory.java:88)
-		at app//org.springframework.boot.testcontainers.service.connection.ServiceConnectionContextCustomizerFactory.lambda$collectSources$0(ServiceConnectionContextCustomizerFactory.java:63)
-		at app//org.springframework.core.annotation.TypeMappedAnnotations$AggregatesSpliterator.tryAdvance(TypeMappedAnnotations.java:607)
-		at app//org.springframework.core.annotation.TypeMappedAnnotations$AggregatesSpliterator.tryAdvance(TypeMappedAnnotations.java:574)
-		at java.base@17.0.10/java.util.Spliterator.forEachRemaining(Spliterator.java:332)
-		at java.base@17.0.10/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
-		at app//org.springframework.boot.testcontainers.service.connection.ServiceConnectionContextCustomizerFactory.lambda$collectSources$1(ServiceConnectionContextCustomizerFactory.java:63)
-		at app//org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:691)
-		at app//org.springframework.boot.testcontainers.service.connection.ServiceConnectionContextCustomizerFactory.collectSources(ServiceConnectionContextCustomizerFactory.java:60)
-		at app//org.springframework.boot.testcontainers.service.connection.ServiceConnectionContextCustomizerFactory.collectSources(ServiceConnectionContextCustomizerFactory.java:71)
-		at app//org.springframework.boot.testcontainers.service.connection.ServiceConnectionContextCustomizerFactory.createContextCustomizer(ServiceConnectionContextCustomizerFactory.java:52)
-		at app//org.springframework.test.context.support.AbstractTestContextBootstrapper.getContextCustomizers(AbstractTestContextBootstrapper.java:360)
-		at app//org.springframework.test.context.support.AbstractTestContextBootstrapper.buildMergedContextConfiguration(AbstractTestContextBootstrapper.java:332)
-		at app//org.springframework.test.context.support.AbstractTestContextBootstrapper.buildDefaultMergedContextConfiguration(AbstractTestContextBootstrapper.java:267)
-		at app//org.springframework.test.context.support.AbstractTestContextBootstrapper.buildMergedContextConfiguration(AbstractTestContextBootstrapper.java:215)
-		at app//org.springframework.test.context.support.AbstractTestContextBootstrapper.buildTestContext(AbstractTestContextBootstrapper.java:108)
-		at app//org.springframework.boot.test.context.SpringBootTestContextBootstrapper.buildTestContext(SpringBootTestContextBootstrapper.java:111)
-		at app//org.springframework.test.context.TestContextManager.&lt;init&gt;(TestContextManager.java:142)
-		at app//org.springframework.test.context.TestContextManager.&lt;init&gt;(TestContextManager.java:126)
-		at app//org.junit.platform.engine.support.store.NamespacedHierarchicalStore.lambda$getOrComputeIfAbsent$5(NamespacedHierarchicalStore.java:147)
-		at app//org.junit.platform.engine.support.store.NamespacedHierarchicalStore$MemoizingSupplier.computeValue(NamespacedHierarchicalStore.java:372)
-		at app//org.junit.platform.engine.support.store.NamespacedHierarchicalStore$MemoizingSupplier.get(NamespacedHierarchicalStore.java:361)
-		at app//org.junit.platform.engine.support.store.NamespacedHierarchicalStore$StoredValue.evaluate(NamespacedHierarchicalStore.java:308)
-		at app//org.junit.platform.engine.support.store.NamespacedHierarchicalStore$StoredValue.access$200(NamespacedHierarchicalStore.java:287)
-		at app//org.junit.platform.engine.support.store.NamespacedHierarchicalStore.getOrComputeIfAbsent(NamespacedHierarchicalStore.java:149)
-		at app//org.junit.platform.engine.support.store.NamespacedHierarchicalStore.getOrComputeIfAbsent(NamespacedHierarchicalStore.java:168)
-		at app//org.junit.jupiter.engine.execution.NamespaceAwareStore.lambda$getOrComputeIfAbsent$3(NamespaceAwareStore.java:66)
-		at app//org.junit.jupiter.engine.execution.NamespaceAwareStore.accessStore(NamespaceAwareStore.java:90)
-		at app//org.junit.jupiter.engine.execution.NamespaceAwareStore.getOrComputeIfAbsent(NamespaceAwareStore.java:65)
-		at app//org.springframework.test.context.junit.jupiter.SpringExtension.getTestContextManager(SpringExtension.java:366)
-		at app//org.springframework.test.context.junit.jupiter.SpringExtension.afterAll(SpringExtension.java:142)
-		at app//org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeAfterAllCallbacks$18(ClassBasedTestDescriptor.java:462)
-		at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-		at app//org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeAfterAllCallbacks$19(ClassBasedTestDescriptor.java:462)
-		at app//org.junit.platform.commons.util.CollectionUtils.forEachInReverseOrder(CollectionUtils.java:221)
-		at app//org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeAfterAllCallbacks(ClassBasedTestDescriptor.java:461)
-		at app//org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.after(ClassBasedTestDescriptor.java:236)
-		at app//org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.after(ClassBasedTestDescriptor.java:85)
-		at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:161)
-		at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-		at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:161)
-		... 48 more
-	Caused by: java.lang.IllegalStateException: Previous attempts to find a Docker environment failed. Will not retry. Please see logs and check configuration
-		at org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy(DockerClientProviderStrategy.java:232)
-		at org.testcontainers.DockerClientFactory.getOrInitializeStrategy(DockerClientFactory.java:152)
-		at org.testcontainers.DockerClientFactory.client(DockerClientFactory.java:194)
-		at org.testcontainers.images.LocalImagesCache.get(LocalImagesCache.java:31)
-		at org.testcontainers.images.AbstractImagePullPolicy.shouldPull(AbstractImagePullPolicy.java:18)
-		at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:70)
-		at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:28)
-		at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-		at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-		at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1365)
-		... 89 more
-</failure>
-  </testcase>
-  <system-out><![CDATA[18:43:52.167 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
-18:43:52.170 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
-18:43:52.288 [Test worker] WARN org.testcontainers.dockerclient.DockerClientProviderStrategy -- DOCKER_HOST unix:///var/run/docker.sock is not listening
-18:43:52.290 [Test worker] INFO org.testcontainers.dockerclient.DockerMachineClientProviderStrategy -- docker-machine executable was not found on PATH ([/usr/local/sbin, /usr/local/bin, /usr/sbin, /usr/bin, /sbin, /bin, /usr/games, /usr/local/games, /snap/bin, /home/unimagdalena/.local/share/JetBrains/Toolbox/scripts])
-18:43:52.290 [Test worker] ERROR org.testcontainers.dockerclient.DockerClientProviderStrategy -- Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
-	DockerDesktopClientProviderStrategy: failed with exception NullPointerException (Cannot invoke "java.nio.file.Path.toString()" because the return value of "org.testcontainers.dockerclient.DockerDesktopClientProviderStrategy.getSocketPath()" is null)As no valid configuration was found, execution cannot continue.
-See https://java.testcontainers.org/on_failure.html for more details.
-18:43:52.335 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [edu.unimagdalena.ejemplo.Repository.UsuarioRepositoryTest]: UsuarioRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+  <testcase name="givenAnUser_whenSave_thenUserwithId()" classname="edu.unimagdalena.ejemplo.Repository.UsuarioRepositoryTest" time="0.359"/>
+  <testcase name="dado un conjunto de usuarios al buscarlo todos obtenemos la lista de los usuarios en la base de datos" classname="edu.unimagdalena.ejemplo.Repository.UsuarioRepositoryTest" time="0.017"/>
+  <testcase name="givenUsuarios_whenBuscarPorNombreyApellido_thenObtienesUnaListaDeUsuarios()" classname="edu.unimagdalena.ejemplo.Repository.UsuarioRepositoryTest" time="0.016"/>
+  <system-out><![CDATA[19:36:58.201 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+19:36:58.204 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+19:36:58.268 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+19:36:58.383 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+19:36:58.384 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+19:36:58.392 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 25.0.3
+  API Version: 1.44
+  Operating System: Linux Mint 21.3
+  Total Memory: 15659 MB
+19:36:58.402 [Test worker] INFO tc.testcontainers/ryuk:0.6.0 -- Creating container for image: testcontainers/ryuk:0.6.0
+19:36:58.404 [Test worker] INFO org.testcontainers.utility.RegistryAuthLocator -- Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.6.0, configFile: /root/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /root/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+19:36:58.456 [Test worker] INFO tc.testcontainers/ryuk:0.6.0 -- Container testcontainers/ryuk:0.6.0 is starting: e7266223907d8d80f6f9b48a1da2262116f04b421ca2ca81385f595c010fdebe
+19:36:58.685 [Test worker] INFO tc.testcontainers/ryuk:0.6.0 -- Container testcontainers/ryuk:0.6.0 started in PT0.283223057S
+19:36:58.688 [Test worker] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+19:36:58.688 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+19:36:58.688 [Test worker] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+19:36:58.688 [Test worker] INFO tc.postgres:15-alpine -- Creating container for image: postgres:15-alpine
+19:36:58.734 [Test worker] INFO tc.postgres:15-alpine -- Container postgres:15-alpine is starting: 0604a22c02975ed51a7c444df0ccc7ce2488b2d22b7f90916b837952157c1f5c
+19:36:59.787 [Test worker] INFO tc.postgres:15-alpine -- Container postgres:15-alpine started in PT1.099109206S
+19:36:59.788 [Test worker] INFO tc.postgres:15-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:32813/test?loggerLevel=OFF)
+19:36:59.834 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [edu.unimagdalena.ejemplo.Repository.UsuarioRepositoryTest]: UsuarioRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:36:59.908 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration edu.unimagdalena.ejemplo.MainPrincipal for test class edu.unimagdalena.ejemplo.Repository.UsuarioRepositoryTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2024-03-08T19:37:00.068-05:00  INFO 30654 --- [    Test worker] e.u.e.Repository.UsuarioRepositoryTest   : Starting UsuarioRepositoryTest using Java 17.0.10 with PID 30654 (started by root in /home/unimagdalena/Documentos/Web/CapaPersistencia2/CapaPersistencia)
+2024-03-08T19:37:00.069-05:00  INFO 30654 --- [    Test worker] e.u.e.Repository.UsuarioRepositoryTest   : No active profile set, falling back to 1 default profile: "default"
+2024-03-08T19:37:00.215-05:00  INFO 30654 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-08T19:37:00.241-05:00  INFO 30654 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 4 JPA repository interfaces.
+2024-03-08T19:37:00.385-05:00  INFO 30654 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-08T19:37:00.407-05:00  INFO 30654 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-08T19:37:00.422-05:00  INFO 30654 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-08T19:37:00.525-05:00  INFO 30654 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-08T19:37:00.537-05:00  INFO 30654 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-08T19:37:00.622-05:00  INFO 30654 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@51141f64
+2024-03-08T19:37:00.623-05:00  INFO 30654 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-08T19:37:01.075-05:00  INFO 30654 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table mensajes (id bigserial not null, contenido varchar(255), creador varchar(255), destinatario varchar(255), id_usuario bigint not null, primary key (id))
+Hibernate: create table partidas (id bigserial not null, ciudad varchar(255), comentarios varchar(255), creador varchar(255), deporte varchar(255), participantes integer, provincia varchar(255), suplentes integer, primary key (id))
+Hibernate: create table sugerencias (id bigserial not null, descripcion varchar(255), id_usuario bigint not null, primary key (id))
+Hibernate: create table usuario_partida (id_usuario bigint not null, id_partida bigint not null)
+Hibernate: create table usuarios (id bigserial not null, apellido varchar(255), edad integer, email varchar(255), enabled boolean, foto varchar(255), nombre varchar(255), password varchar(255), rep_password varchar(255), rol varchar(255), username varchar(255), primary key (id))
+Hibernate: alter table if exists mensajes add constraint FK2f54l7y1jym38nv98m2mba494 foreign key (id_usuario) references usuarios
+Hibernate: alter table if exists sugerencias add constraint FK69i6579nhcqf93t24qnmlklok foreign key (id_usuario) references usuarios
+Hibernate: alter table if exists usuario_partida add constraint FKphxfg9504lx00nyvhosad2tfv foreign key (id_partida) references partidas
+Hibernate: alter table if exists usuario_partida add constraint FKqe57ghd9ryswdgfepccfa4x4r foreign key (id_usuario) references usuarios
+2024-03-08T19:37:01.107-05:00  INFO 30654 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-08T19:37:01.295-05:00  INFO 30654 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-03-08T19:37:01.453-05:00  INFO 30654 --- [    Test worker] e.u.e.Repository.UsuarioRepositoryTest   : Started UsuarioRepositoryTest in 1.518 seconds (process running for 3.594)
+Hibernate: select u1_0.id,u1_0.apellido,u1_0.edad,u1_0.email,u1_0.enabled,u1_0.foto,u1_0.nombre,u1_0.password,u1_0.rep_password,u1_0.rol,u1_0.username from usuarios u1_0
+Hibernate: insert into usuarios (apellido,edad,email,enabled,foto,nombre,password,rep_password,rol,username) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: select u1_0.id,u1_0.apellido,u1_0.edad,u1_0.email,u1_0.enabled,u1_0.foto,u1_0.nombre,u1_0.password,u1_0.rep_password,u1_0.rol,u1_0.username from usuarios u1_0
+Hibernate: insert into usuarios (apellido,edad,email,enabled,foto,nombre,password,rep_password,rol,username) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into usuarios (apellido,edad,email,enabled,foto,nombre,password,rep_password,rol,username) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: select u1_0.id,u1_0.apellido,u1_0.edad,u1_0.email,u1_0.enabled,u1_0.foto,u1_0.nombre,u1_0.password,u1_0.rep_password,u1_0.rol,u1_0.username from usuarios u1_0
+Hibernate: select u1_0.id,u1_0.apellido,u1_0.edad,u1_0.email,u1_0.enabled,u1_0.foto,u1_0.nombre,u1_0.password,u1_0.rep_password,u1_0.rol,u1_0.username from usuarios u1_0
+Hibernate: insert into usuarios (apellido,edad,email,enabled,foto,nombre,password,rep_password,rol,username) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: select u1_0.id,u1_0.apellido,u1_0.edad,u1_0.email,u1_0.enabled,u1_0.foto,u1_0.nombre,u1_0.password,u1_0.rep_password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.nombre=? and u1_0.apellido=?
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

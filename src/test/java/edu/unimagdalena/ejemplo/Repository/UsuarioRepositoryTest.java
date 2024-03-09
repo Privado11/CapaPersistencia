@@ -18,8 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class UsuarioRepositoryTest extends AbstractIntegrationDBTest {
     UsuarioRepository usuarioRepository;
-
-
+    @Autowired
     public UsuarioRepositoryTest(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
@@ -45,7 +44,6 @@ class UsuarioRepositoryTest extends AbstractIntegrationDBTest {
 
     @BeforeEach
     void setUp() {
-
         usuarioRepository.deleteAll();
 
     }

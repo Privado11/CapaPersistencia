@@ -20,8 +20,6 @@ public class Mensaje {
     private String destinatario;
     private String contenido;
 
-    @Temporal(TemporalType.DATE)
-    private LocalDateTime fecha;
 
 
     @ManyToOne

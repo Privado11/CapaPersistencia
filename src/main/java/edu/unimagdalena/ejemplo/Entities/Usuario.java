@@ -1,7 +1,9 @@
 package edu.unimagdalena.ejemplo.Entities;
 
+
 import jakarta.persistence.*;
 import lombok.*;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,8 +13,8 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +29,8 @@ public class Usuario {
     private Boolean enabled;
     private String foto;
     private String rol;
-    @Temporal(TemporalType.DATE)
-    private LocalDateTime fechaCreacion;
+
+
 
 
     @OneToMany(mappedBy = "usuario")

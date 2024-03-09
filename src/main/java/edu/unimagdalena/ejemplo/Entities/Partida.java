@@ -25,15 +25,6 @@ public class Partida {
     private Integer suplentes;
     private String comentarios;
 
-    @Temporal(TemporalType.DATE)
-    private LocalDateTime fecha;
-
-    @Temporal(TemporalType.TIME)
-    private LocalDateTime horaComienzo;
-
-    @Temporal(TemporalType.TIME)
-    private LocalDateTime horaFinal;
-
     @ManyToMany(mappedBy = "partidas")
     private List<Usuario> usuarios;
 }

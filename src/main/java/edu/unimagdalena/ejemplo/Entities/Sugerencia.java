@@ -18,8 +18,6 @@ public class Sugerencia {
     private Long id;
     private String descripcion;
 
-    @Temporal(TemporalType.DATE)
-    private LocalDateTime fechaCreacion;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
