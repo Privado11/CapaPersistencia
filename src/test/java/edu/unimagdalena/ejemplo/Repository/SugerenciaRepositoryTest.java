@@ -1,7 +1,6 @@
 package edu.unimagdalena.ejemplo.Repository;
 
 import edu.unimagdalena.ejemplo.Entities.Sugerencia;
-import edu.unimagdalena.ejemplo.Entities.Usuario;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

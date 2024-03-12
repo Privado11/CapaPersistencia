@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class UsuarioRepositoryTest extends AbstractIntegrationDBTest {
@@ -104,5 +103,25 @@ class UsuarioRepositoryTest extends AbstractIntegrationDBTest {
 
         assertThat(usuarios).isNotEmpty();
         assertThat(usuarios).first().hasFieldOrPropertyWithValue("nombre","Andrés");
+    }
+    @Test
+    void givenUsuario_whenActualizarUsuario_thenObtenerUsuarioActualizado(){
+        //GIVEN
+        Usuario usuario = Usuario.builder()
+                .nombre("Walter")
+                .apellido("Jimenez")
+                .username("privado")
+                .password("privado11")
+                .build();
+        
+
+        //WHEN
+        Usuario usuarioParaActualizar = usuarioRepository.save(usuario);
+        usuarioParaActualizar.setApellido("Jiménez");
+        
+
+        //THEN
+        Usuario usuarioActualizado = usuarioRepository.save(usuarioParaActualizar);;
+        assertThat(usuarioActualizado.getApellido()).isEqualTo("Jiménez");
     }
 }
