@@ -14,7 +14,6 @@ public class Mensaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String creador;
     private String destinatario;
     private String contenido;
 

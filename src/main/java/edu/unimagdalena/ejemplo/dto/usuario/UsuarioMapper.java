@@ -1,11 +1,19 @@
 package edu.unimagdalena.ejemplo.dto.usuario;
 
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+
 import edu.unimagdalena.ejemplo.Entities.Usuario;
 
-public class UsuarioMapper {
-    public Usuario usuarioDtoTousuarioEntity(UsuarioDto usuarioDto){
-        Usuario usuario = new Usuario();
+@Mapper
+public interface UsuarioMapper {
 
-        return usuario;
-    }
+    UsuarioMapper INSTANCE = Mappers.getMapper(UsuarioMapper.class);  
+    
+    Usuario toEntity(UsuarioDto usuarioDto);
+
+    Usuario UsuarioToSaveDtoToEntity(UsuarioToSaveDto usuarioToSaveDto);
+
+
+    UsuarioDto toDto(Usuario usuario);
 }
