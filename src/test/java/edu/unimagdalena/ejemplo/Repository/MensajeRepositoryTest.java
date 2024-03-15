@@ -23,14 +23,12 @@ class MensajeRepositoryTest extends AbstractIntegrationDBTest{
 
     void initMockMensajes(){
         Mensaje mensaje = Mensaje.builder()
-                .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas...")
                 .build();
         mensajeRepository.save(mensaje);
 
         Mensaje mensaje2 = Mensaje.builder()
-                .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas 2...")
                 .build();
@@ -47,7 +45,6 @@ class MensajeRepositoryTest extends AbstractIntegrationDBTest{
     void givenAnMensaje_whenSave_thenMensajewithId(){
         //given
         Mensaje mensaje = Mensaje.builder()
-                .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas...")
                 .usuario(createUser())
@@ -63,7 +60,6 @@ class MensajeRepositoryTest extends AbstractIntegrationDBTest{
     void shouldGetAllUsers(){
         //GIVEN
         Mensaje mensaje = Mensaje.builder()
-                .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas...")
                 .usuario(createUser())
@@ -71,7 +67,6 @@ class MensajeRepositoryTest extends AbstractIntegrationDBTest{
         mensajeRepository.save(mensaje);
 
         Mensaje mensaje2 = Mensaje.builder()
-                .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas 2...")
                 .usuario(createUser())
@@ -87,7 +82,6 @@ class MensajeRepositoryTest extends AbstractIntegrationDBTest{
     @Test
     void givenMensaje_whenBuscarPorCreador_thenObtienesUnaListaDeMensajes(){
         Mensaje mensaje = Mensaje.builder()
-                .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas...")
                 .usuario(createUser())
@@ -95,7 +89,6 @@ class MensajeRepositoryTest extends AbstractIntegrationDBTest{
         mensajeRepository.save(mensaje);
 
         Mensaje mensaje2 = Mensaje.builder()
-                .creador("Walter Jiménez")
                 .destinatario("Andrés Licona")
                 .contenido("Realizando pruebas 2...")
                 .usuario(createUser())

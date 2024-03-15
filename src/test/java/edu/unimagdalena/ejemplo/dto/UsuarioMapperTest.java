@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
+import edu.unimagdalena.ejemplo.Entities.Partida;
 import org.junit.jupiter.api.Test;
 
 import edu.unimagdalena.ejemplo.Entities.Mensaje;
@@ -28,6 +29,14 @@ public class UsuarioMapperTest {
 
     List<Mensaje> mensajes = List.of(mensaje);
 
+    Partida partida = Partida.builder()
+            .creador("Walter")
+            .ciudad("Santa Marta")
+            .participantes(4)
+            .build();
+
+    List<Partida> partidas = List.of(partida);
+
     Usuario usuario = Usuario.builder()
             .nombre("Walter")
             .apellido("Jiménez")
@@ -35,6 +44,7 @@ public class UsuarioMapperTest {
             .email("privado@privado.com")
             .sugerencias(sugerencias)
             .mensajes(mensajes)
+            .partidas(partidas)
             .build();
 
     UsuarioDto usuarioDto = UsuarioMapper.INSTANCE.toDto(usuario);
