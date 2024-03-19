@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface    UsuarioRepository extends JpaRepository<Usuario, Long> {
     List<Usuario>  findByNombreAndApellido(String nombre, String apellido);
@@ -16,5 +17,9 @@ public interface    UsuarioRepository extends JpaRepository<Usuario, Long> {
     List<Usuario> findByNombreLike(String nombre);
 
     Usuario findByUsername(String username);
+
+    Optional<Usuario> findById(Long id);
+
+    Usuario findByEmail(String email);
 
 }
