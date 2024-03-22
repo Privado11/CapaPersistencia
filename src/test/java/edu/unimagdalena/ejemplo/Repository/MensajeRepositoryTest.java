@@ -95,9 +95,9 @@ class MensajeRepositoryTest extends AbstractIntegrationDBTest{
                 .build();
         mensajeRepository.save(mensaje2);
 
-        List<Mensaje> mensajes = mensajeRepository.findByCreadorLike("Walter Jiménez");
+        List<Mensaje> mensajes = mensajeRepository.findByDestinatarioLike("Andrés Licona");
 
         assertThat(mensajes).isNotEmpty();
-        assertThat(mensajes).first().hasFieldOrPropertyWithValue("creador","Walter Jiménez");
+        assertThat(mensajes).first().hasFieldOrPropertyWithValue("destinatario","Andrés Licona");
     }
 }

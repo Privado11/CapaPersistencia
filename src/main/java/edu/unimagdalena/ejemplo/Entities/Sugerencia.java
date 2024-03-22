@@ -1,5 +1,7 @@
 package edu.unimagdalena.ejemplo.Entities;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +18,8 @@ public class Sugerencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descripcion;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createdAt;
 
 
     @ManyToOne

@@ -1,11 +1,12 @@
 package edu.unimagdalena.ejemplo.dto.mensaje;
 
 import edu.unimagdalena.ejemplo.Entities.Mensaje;
+import java.time.LocalDateTime;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-03-15T18:21:14-0500",
+    date = "2024-03-21T18:35:17-0500",
     comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.5.jar, environment: Java 17.0.10 (Oracle Corporation)"
 )
 public class MensajemapperImpl implements Mensajemapper {
@@ -21,6 +22,7 @@ public class MensajemapperImpl implements Mensajemapper {
         mensaje.id( mensajeDto.id() );
         mensaje.destinatario( mensajeDto.destinatario() );
         mensaje.contenido( mensajeDto.contenido() );
+        mensaje.createAt( mensajeDto.createAt() );
 
         return mensaje.build();
     }
@@ -34,12 +36,14 @@ public class MensajemapperImpl implements Mensajemapper {
         Long id = null;
         String destinatario = null;
         String contenido = null;
+        LocalDateTime createAt = null;
 
         id = mensaje.getId();
         destinatario = mensaje.getDestinatario();
         contenido = mensaje.getContenido();
+        createAt = mensaje.getCreateAt();
 
-        MensajeDto mensajeDto = new MensajeDto( id, destinatario, contenido );
+        MensajeDto mensajeDto = new MensajeDto( id, destinatario, contenido, createAt );
 
         return mensajeDto;
     }

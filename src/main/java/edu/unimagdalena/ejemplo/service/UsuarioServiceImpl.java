@@ -5,6 +5,7 @@ import edu.unimagdalena.ejemplo.Repository.UsuarioRepository;
 import edu.unimagdalena.ejemplo.dto.usuario.UsuarioDto;
 import edu.unimagdalena.ejemplo.dto.usuario.UsuarioMapper;
 import edu.unimagdalena.ejemplo.dto.usuario.UsuarioToSaveDto;
+import edu.unimagdalena.ejemplo.exception.NotAbleToDeleteException;
 import edu.unimagdalena.ejemplo.exception.UsuarioNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,12 +16,13 @@ import java.util.Objects;
 public class UsuarioServiceImpl implements UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
-    @Autowired
     private UsuarioMapper usuarioMapper;
+    
 
-
-    public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
+    @Autowired
+    public UsuarioServiceImpl(UsuarioRepository usuarioRepository, UsuarioMapper usuarioMapper) {
         this.usuarioRepository = usuarioRepository;
+        this.usuarioMapper = usuarioMapper;
     }
 
     @Override
@@ -31,20 +33,24 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public UsuarioDto actualizarUsuario(UsuarioToSaveDto usuarioDto) throws UsuarioNotFoundException {
-        Usuario usuarioEncontrado = usuarioRepository.findByEmail(usuarioDto.email());
-        if(Objects.isNull(usuarioEncontrado)){
-            throw  new UsuarioNotFoundException("Usuario no encontrado.");
-        }
-        usuarioRepository.delete(usuarioEncontrado);
-        Usuario usuario = usuarioMapper.UsuarioToSaveDtoToEntity(usuarioDto);
-        Usuario usuarioActualizado = usuarioRepository.save(usuario);
-        return  usuarioMapper.toDto(usuarioActualizado);
+    public UsuarioDto actualizarUsuario(Long id,UsuarioToSaveDto usuarioDto) throws UsuarioNotFoundException {
+        return usuarioRepository.findById(id).map(usuario ->{
+            usuario.setNombre(usuarioDto.nombre());
+            usuario.setApellido(usuarioDto.apellido());
+            usuario.setEmail(usuarioDto.email());
+            usuario.setPassword(usuarioDto.password());
+            usuario.setUsername(usuarioDto.username());
+
+            Usuario usuarioGuardado = usuarioRepository.save(usuario);
+
+            return usuarioMapper.toDto(usuarioGuardado);
+        }).orElseThrow(()->new UsuarioNotFoundException("Usuario no encontrado"));
     }
 
     @Override
     public UsuarioDto buscarUsuarioPorId(Long id) throws UsuarioNotFoundException{
-        Usuario usuario = usuarioRepository.findById(id).orElseThrow(UsuarioNotFoundException::new);
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(()-> new UsuarioNotFoundException("Usuario no encontrado"));
         return usuarioMapper.toDto(usuario);
     }
 
@@ -55,5 +61,12 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw  new UsuarioNotFoundException("Usuario no encontrado.");
         }
         return usuarioMapper.toDto(usuario);
+    }
+
+    @Override
+    public void removerUsuario(Long id) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(()-> new NotAbleToDeleteException("Usuario no encontrado") );
+        usuarioRepository.delete(usuario);
     }
 }

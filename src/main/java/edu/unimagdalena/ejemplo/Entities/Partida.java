@@ -3,6 +3,8 @@ package edu.unimagdalena.ejemplo.Entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -20,6 +22,12 @@ public class Partida {
     private String deporte;
     private String ciudad;
     private String provincia;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime fecha;
+    @Temporal(TemporalType.TIME)
+    private LocalTime horaComienzo;
+    @Temporal(TemporalType.TIME)
+    private LocalTime horaFinal;
     private Integer participantes;
     private Integer suplentes;
     private String comentarios;

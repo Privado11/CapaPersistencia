@@ -1,11 +1,13 @@
 package edu.unimagdalena.ejemplo.dto.mensaje;
 
-import edu.unimagdalena.ejemplo.Entities.Usuario;
+import java.time.LocalDateTime;
+
 
 public record MensajeDto(
         Long id,
         String destinatario,
-        String contenido
+        String contenido,
+        LocalDateTime createAt
 ) {
 
 }

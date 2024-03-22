@@ -5,7 +5,8 @@ public record UsuarioToSaveDto(
     String nombre,
     String apellido,
     String username,
-    String email
+    String email,
+    String password
 ) {
     
 }

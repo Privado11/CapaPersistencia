@@ -1,4 +1,6 @@
 package edu.unimagdalena.ejemplo.dto.sugerencia;
 
-public record SugerenciaDto(Long id, String descripcion) {
+import java.time.LocalDateTime;
+
+public record SugerenciaDto(Long id, String descripcion, LocalDateTime createAt) {
 }

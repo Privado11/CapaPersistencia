@@ -24,10 +24,6 @@ public class Usuario {
     private String apellido;
     private Integer edad;
     private String password;
-    private String repPassword;
-    private Boolean enabled;
-    private String foto;
-    private String rol;
 
     @OneToMany(mappedBy = "usuario")
     private List<Sugerencia> sugerencias;

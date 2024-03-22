@@ -1,19 +1,23 @@
 package edu.unimagdalena.ejemplo.dto.usuario;
 
 import edu.unimagdalena.ejemplo.Entities.Mensaje;
+import edu.unimagdalena.ejemplo.Entities.Partida;
 import edu.unimagdalena.ejemplo.Entities.Sugerencia;
 import edu.unimagdalena.ejemplo.Entities.Usuario;
 import edu.unimagdalena.ejemplo.dto.mensaje.MensajeDto;
+import edu.unimagdalena.ejemplo.dto.partidas.PartidaDto;
 import edu.unimagdalena.ejemplo.dto.sugerencia.SugerenciaDto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-03-13T20:32:56-0500",
+    date = "2024-03-20T22:35:49-0500",
     comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.37.0.v20240206-1609, environment: Java 17.0.10 (Eclipse Adoptium)"
 )
+@Component
 public class UsuarioMapperImpl implements UsuarioMapper {
 
     @Override
@@ -29,6 +33,7 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         usuario.id( usuarioDto.id() );
         usuario.mensajes( mensajeDtoListToMensajeList( usuarioDto.mensajes() ) );
         usuario.nombre( usuarioDto.nombre() );
+        usuario.partidas( partidaDtoListToPartidaList( usuarioDto.partidas() ) );
         usuario.sugerencias( sugerenciaDtoListToSugerenciaList( usuarioDto.sugerencias() ) );
         usuario.username( usuarioDto.username() );
 
@@ -65,6 +70,7 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         String email = null;
         List<SugerenciaDto> sugerencias = null;
         List<MensajeDto> mensajes = null;
+        List<PartidaDto> partidas = null;
 
         id = usuario.getId();
         nombre = usuario.getNombre();
@@ -73,8 +79,9 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         email = usuario.getEmail();
         sugerencias = sugerenciaListToSugerenciaDtoList( usuario.getSugerencias() );
         mensajes = mensajeListToMensajeDtoList( usuario.getMensajes() );
+        partidas = partidaListToPartidaDtoList( usuario.getPartidas() );
 
-        UsuarioDto usuarioDto = new UsuarioDto( id, nombre, apellido, username, email, sugerencias, mensajes );
+        UsuarioDto usuarioDto = new UsuarioDto( id, nombre, apellido, username, email, sugerencias, mensajes, partidas );
 
         return usuarioDto;
     }
@@ -101,6 +108,38 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         List<Mensaje> list1 = new ArrayList<Mensaje>( list.size() );
         for ( MensajeDto mensajeDto : list ) {
             list1.add( mensajeDtoToMensaje( mensajeDto ) );
+        }
+
+        return list1;
+    }
+
+    protected Partida partidaDtoToPartida(PartidaDto partidaDto) {
+        if ( partidaDto == null ) {
+            return null;
+        }
+
+        Partida.PartidaBuilder partida = Partida.builder();
+
+        partida.ciudad( partidaDto.ciudad() );
+        partida.comentarios( partidaDto.comentarios() );
+        partida.creador( partidaDto.creador() );
+        partida.deporte( partidaDto.deporte() );
+        partida.id( partidaDto.id() );
+        partida.participantes( partidaDto.participantes() );
+        partida.provincia( partidaDto.provincia() );
+        partida.suplentes( partidaDto.suplentes() );
+
+        return partida.build();
+    }
+
+    protected List<Partida> partidaDtoListToPartidaList(List<PartidaDto> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<Partida> list1 = new ArrayList<Partida>( list.size() );
+        for ( PartidaDto partidaDto : list ) {
+            list1.add( partidaDtoToPartida( partidaDto ) );
         }
 
         return list1;
@@ -187,6 +226,47 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         List<MensajeDto> list1 = new ArrayList<MensajeDto>( list.size() );
         for ( Mensaje mensaje : list ) {
             list1.add( mensajeToMensajeDto( mensaje ) );
+        }
+
+        return list1;
+    }
+
+    protected PartidaDto partidaToPartidaDto(Partida partida) {
+        if ( partida == null ) {
+            return null;
+        }
+
+        Long id = null;
+        String creador = null;
+        String deporte = null;
+        String ciudad = null;
+        String provincia = null;
+        Integer participantes = null;
+        Integer suplentes = null;
+        String comentarios = null;
+
+        id = partida.getId();
+        creador = partida.getCreador();
+        deporte = partida.getDeporte();
+        ciudad = partida.getCiudad();
+        provincia = partida.getProvincia();
+        participantes = partida.getParticipantes();
+        suplentes = partida.getSuplentes();
+        comentarios = partida.getComentarios();
+
+        PartidaDto partidaDto = new PartidaDto( id, creador, deporte, ciudad, provincia, participantes, suplentes, comentarios );
+
+        return partidaDto;
+    }
+
+    protected List<PartidaDto> partidaListToPartidaDtoList(List<Partida> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<PartidaDto> list1 = new ArrayList<PartidaDto>( list.size() );
+        for ( Partida partida : list ) {
+            list1.add( partidaToPartidaDto( partida ) );
         }
 
         return list1;

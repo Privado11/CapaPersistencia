@@ -1,5 +1,7 @@
 package edu.unimagdalena.ejemplo.Entities;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +18,8 @@ public class Mensaje {
     private Long id;
     private String destinatario;
     private String contenido;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createAt;
 
 
 

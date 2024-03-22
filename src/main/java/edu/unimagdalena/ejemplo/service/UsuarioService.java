@@ -7,7 +7,8 @@ import edu.unimagdalena.ejemplo.exception.UsuarioNotFoundException;
 
 public interface UsuarioService {
     UsuarioDto guardarUsuario(UsuarioToSaveDto usuario);
-    UsuarioDto actualizarUsuario(UsuarioToSaveDto usuario) throws UsuarioNotFoundException;
+    UsuarioDto actualizarUsuario(Long id, UsuarioToSaveDto usuario) throws UsuarioNotFoundException;
     UsuarioDto buscarUsuarioPorId(Long id) throws UsuarioNotFoundException;
     UsuarioDto buscarUsuarioPorEmail(String email) throws UsuarioNotFoundException;
+    void removerUsuario(Long id);
 }
