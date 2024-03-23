@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.unimagdalena.ejemplo.dto.UsuarioMapperTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-03-15T23:28:02" hostname="unimagdalena-HP-Elite-SFF-600-G9-Desktop-PC" time="0.03">
-  <properties/>
-  <testcase name="dtoToEntity()" classname="edu.unimagdalena.ejemplo.dto.UsuarioMapperTest" time="0.029"/>
-  <testcase name="usuarioToDto()" classname="edu.unimagdalena.ejemplo.dto.UsuarioMapperTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

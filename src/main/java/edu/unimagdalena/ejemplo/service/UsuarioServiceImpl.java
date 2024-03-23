@@ -10,6 +10,7 @@ import edu.unimagdalena.ejemplo.exception.UsuarioNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -68,5 +69,13 @@ public class UsuarioServiceImpl implements UsuarioService {
         Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(()-> new NotAbleToDeleteException("Usuario no encontrado") );
         usuarioRepository.delete(usuario);
+    }
+
+    @Override
+    public List<UsuarioDto> getAllUser() {
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        return  usuarios.stream()
+                .map(usuario -> usuarioMapper.toDto(usuario))
+                .toList();
     }
 }

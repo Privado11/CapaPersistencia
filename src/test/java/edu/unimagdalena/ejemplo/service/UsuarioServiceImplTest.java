@@ -24,6 +24,7 @@ import edu.unimagdalena.ejemplo.dto.usuario.UsuarioDto;
 import edu.unimagdalena.ejemplo.dto.usuario.UsuarioMapper;
 import edu.unimagdalena.ejemplo.dto.usuario.UsuarioToSaveDto;
 import edu.unimagdalena.ejemplo.exception.UsuarioNotFoundException;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 public class UsuarioServiceImplTest {
@@ -86,7 +87,7 @@ public class UsuarioServiceImplTest {
     void testGuardarUsuario() {
         given(usuarioRepository.save(any())).willReturn(usuario);
         
-        UsuarioToSaveDto usuarioAGuardar = new UsuarioToSaveDto(null,
+        UsuarioToSaveDto usuarioAGuardar = new UsuarioToSaveDto(1l,
                 "Walter",
                 "Jiménez",
                 "privado",
