@@ -38,6 +38,7 @@ public class UsuarioServiceImplTest {
 
     @InjectMocks
     private UsuarioServiceImpl usuarioService;
+    
     Usuario usuario, usuario2;
     UsuarioDto usuarioDto;
 

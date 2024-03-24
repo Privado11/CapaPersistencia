@@ -99,7 +99,7 @@ class PartidaRepositoryTest extends AbstractIntegrationDBTest {
                 .build();
         partidaRepository.save(partida2);
 
-        List<Partida> partidas = partidaRepository.buscarPorDeporte("Futbol");
+        List<Partida> partidas = partidaRepository.findByDeporteLike("Futbol");
 
         assertThat(partidas).isNotEmpty();
         assertThat(partidas).first().hasFieldOrPropertyWithValue("deporte","Futbol");

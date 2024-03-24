@@ -1,4 +1,4 @@
-package edu.unimagdalena.ejemplo.controller;
+package edu.unimagdalena.ejemplo.controller.usuario;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.unimagdalena.ejemplo.Entities.Usuario;

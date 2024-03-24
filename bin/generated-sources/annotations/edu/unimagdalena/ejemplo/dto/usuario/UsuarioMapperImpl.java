@@ -8,6 +8,7 @@ import edu.unimagdalena.ejemplo.dto.mensaje.MensajeDto;
 import edu.unimagdalena.ejemplo.dto.partidas.PartidaDto;
 import edu.unimagdalena.ejemplo.dto.sugerencia.SugerenciaDto;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.processing.Generated;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-03-23T18:54:25-0500",
+    date = "2024-03-24T12:08:34-0500",
     comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.37.0.v20240206-1609, environment: Java 17.0.10 (Eclipse Adoptium)"
 )
 @Component
@@ -116,6 +117,19 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         return list1;
     }
 
+    protected List<Usuario> usuarioDtoListToUsuarioList(List<UsuarioDto> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<Usuario> list1 = new ArrayList<Usuario>( list.size() );
+        for ( UsuarioDto usuarioDto : list ) {
+            list1.add( toEntity( usuarioDto ) );
+        }
+
+        return list1;
+    }
+
     protected Partida partidaDtoToPartida(PartidaDto partidaDto) {
         if ( partidaDto == null ) {
             return null;
@@ -127,10 +141,14 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         partida.comentarios( partidaDto.comentarios() );
         partida.creador( partidaDto.creador() );
         partida.deporte( partidaDto.deporte() );
+        partida.fecha( partidaDto.fecha() );
+        partida.horaComienzo( partidaDto.horaComienzo() );
+        partida.horaFinal( partidaDto.horaFinal() );
         partida.id( partidaDto.id() );
         partida.participantes( partidaDto.participantes() );
         partida.provincia( partidaDto.provincia() );
         partida.suplentes( partidaDto.suplentes() );
+        partida.usuarios( usuarioDtoListToUsuarioList( partidaDto.usuarios() ) );
 
         return partida.build();
     }
@@ -238,6 +256,19 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         return list1;
     }
 
+    protected List<UsuarioDto> usuarioListToUsuarioDtoList(List<Usuario> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<UsuarioDto> list1 = new ArrayList<UsuarioDto>( list.size() );
+        for ( Usuario usuario : list ) {
+            list1.add( toDto( usuario ) );
+        }
+
+        return list1;
+    }
+
     protected PartidaDto partidaToPartidaDto(Partida partida) {
         if ( partida == null ) {
             return null;
@@ -251,6 +282,10 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         Integer participantes = null;
         Integer suplentes = null;
         String comentarios = null;
+        LocalDateTime fecha = null;
+        LocalTime horaComienzo = null;
+        LocalTime horaFinal = null;
+        List<UsuarioDto> usuarios = null;
 
         id = partida.getId();
         creador = partida.getCreador();
@@ -260,8 +295,12 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         participantes = partida.getParticipantes();
         suplentes = partida.getSuplentes();
         comentarios = partida.getComentarios();
+        fecha = partida.getFecha();
+        horaComienzo = partida.getHoraComienzo();
+        horaFinal = partida.getHoraFinal();
+        usuarios = usuarioListToUsuarioDtoList( partida.getUsuarios() );
 
-        PartidaDto partidaDto = new PartidaDto( id, creador, deporte, ciudad, provincia, participantes, suplentes, comentarios );
+        PartidaDto partidaDto = new PartidaDto( id, creador, deporte, ciudad, provincia, participantes, suplentes, comentarios, fecha, horaComienzo, horaFinal, usuarios );
 
         return partidaDto;
     }

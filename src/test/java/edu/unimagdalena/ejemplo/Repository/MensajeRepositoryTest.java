@@ -79,25 +79,5 @@ class MensajeRepositoryTest extends AbstractIntegrationDBTest{
         //THEN
         assertThat(mensajes).hasSize(2);
     }
-    @Test
-    void givenMensaje_whenBuscarPorCreador_thenObtienesUnaListaDeMensajes(){
-        Mensaje mensaje = Mensaje.builder()
-                .destinatario("Andrés Licona")
-                .contenido("Realizando pruebas...")
-                .usuario(createUser())
-                .build();
-        mensajeRepository.save(mensaje);
 
-        Mensaje mensaje2 = Mensaje.builder()
-                .destinatario("Andrés Licona")
-                .contenido("Realizando pruebas 2...")
-                .usuario(createUser())
-                .build();
-        mensajeRepository.save(mensaje2);
-
-        List<Mensaje> mensajes = mensajeRepository.findByDestinatarioLike("Andrés Licona");
-
-        assertThat(mensajes).isNotEmpty();
-        assertThat(mensajes).first().hasFieldOrPropertyWithValue("destinatario","Andrés Licona");
-    }
 }

@@ -10,18 +10,18 @@ import edu.unimagdalena.ejemplo.Entities.Usuario;
 import edu.unimagdalena.ejemplo.Repository.MensajeRepository;
 import edu.unimagdalena.ejemplo.dto.mensaje.MensajeDto;
 import edu.unimagdalena.ejemplo.dto.mensaje.MensajeToSaveDto;
-import edu.unimagdalena.ejemplo.dto.mensaje.Mensajemapper;
+import edu.unimagdalena.ejemplo.dto.mensaje.MensajeMapper;
 import edu.unimagdalena.ejemplo.exception.UsuarioNotFoundException;
 
 @Service
 public class MensajeServiceImpl implements MensajeService{
 
     private final MensajeRepository mensajeRepository;
-    private Mensajemapper mensajemapper;
+    private MensajeMapper mensajemapper;
     
 
     @Autowired
-    public MensajeServiceImpl(MensajeRepository mensajeRepository, Mensajemapper mensajemapper) {
+    public MensajeServiceImpl(MensajeRepository mensajeRepository, MensajeMapper mensajemapper) {
         this.mensajeRepository = mensajeRepository;
         this.mensajemapper = mensajemapper;
     }
@@ -43,8 +43,11 @@ public class MensajeServiceImpl implements MensajeService{
 
     @Override
     public List<MensajeDto> buscarMensajesPorUsuario(Usuario usuario) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarMensajesPorUsuario'");
+        List<Mensaje> mensajes = mensajeRepository.findByUsuario(usuario);
+
+        return mensajes.stream()
+        .map(mensaje -> mensajemapper.toDto(mensaje))
+        .toList();
     }
 
     @Override

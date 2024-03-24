@@ -20,7 +20,7 @@ import edu.unimagdalena.ejemplo.Entities.Usuario;
 import edu.unimagdalena.ejemplo.Repository.MensajeRepository;
 import edu.unimagdalena.ejemplo.dto.mensaje.MensajeDto;
 import edu.unimagdalena.ejemplo.dto.mensaje.MensajeToSaveDto;
-import edu.unimagdalena.ejemplo.dto.mensaje.Mensajemapper;
+import edu.unimagdalena.ejemplo.dto.mensaje.MensajeMapper;
 import edu.unimagdalena.ejemplo.exception.UsuarioNotFoundException;
 
 @ExtendWith(MockitoExtension.class)
@@ -30,7 +30,7 @@ public class MensajeServiceImplTest {
     private MensajeRepository mensajeRepository;
 
     @Mock
-    private Mensajemapper mensajemapper;
+    private MensajeMapper mensajemapper;
 
     @InjectMocks
     MensajeServiceImpl mensajeService;

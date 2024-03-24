@@ -1,4 +1,4 @@
-package edu.unimagdalena.ejemplo.dto;
+package edu.unimagdalena.ejemplo.dto.usuario;
 
 
 
@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
 import edu.unimagdalena.ejemplo.Entities.Mensaje;
 import edu.unimagdalena.ejemplo.Entities.Sugerencia;
 import edu.unimagdalena.ejemplo.Entities.Usuario;
-import edu.unimagdalena.ejemplo.dto.usuario.UsuarioDto;
-import edu.unimagdalena.ejemplo.dto.usuario.UsuarioMapper;
+
 
 public class UsuarioMapperTest {
 
@@ -51,14 +50,6 @@ public class UsuarioMapperTest {
     
     @Test
     public void usuarioToDto(){
-        //given
-        Usuario usuario = Usuario.builder()
-            .nombre("Walter")
-            .apellido("Jiménez")
-            .username("privado")
-            .email("privado@privado.com")
-            .build();
-
         //When
         UsuarioDto usuarioDto = UsuarioMapper.INSTANCE.toDto(usuario);
 
