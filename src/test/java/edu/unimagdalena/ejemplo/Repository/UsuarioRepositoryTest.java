@@ -97,7 +97,7 @@ class UsuarioRepositoryTest extends AbstractIntegrationDBTest {
                 .username("privado")
                 .password("123")
                 .build();
-        usuarioRepository.save(usuario);
+        usuarioRepository.save(usuario2);
 
         List<Usuario> usuarios = usuarioRepository.findByNombreAndApellido("Andrés", "Licona");
 
@@ -123,5 +123,28 @@ class UsuarioRepositoryTest extends AbstractIntegrationDBTest {
         //THEN
         Usuario usuarioActualizado = usuarioRepository.save(usuarioParaActualizar);;
         assertThat(usuarioActualizado.getApellido()).isEqualTo("Jiménez");
+    }
+
+    @Test
+    void buscarPorId(){
+        Usuario usuario = Usuario.builder()
+                .nombre("Walter")
+                .apellido("Jiménez")
+                .username("privado")
+                .password("123")
+                .build();
+        usuarioRepository.save(usuario);
+
+        Usuario usuario2 = Usuario.builder()
+                .nombre("Walter2")
+                .apellido("Jiménez")
+                .username("privado2")
+                .password("123")
+                .build();
+        usuarioRepository.save(usuario2);
+
+        Usuario usuarioEncontrado = usuarioRepository.findById(1l).orElse(null);
+        assertThat(usuarioEncontrado).isNotNull();
+        assertThat(usuarioEncontrado.getNombre()).isEqualTo("Walter");
     }
 }

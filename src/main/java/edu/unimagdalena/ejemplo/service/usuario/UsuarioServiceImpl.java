@@ -1,4 +1,4 @@
-package edu.unimagdalena.ejemplo.service;
+package edu.unimagdalena.ejemplo.service.usuario;
 
 import edu.unimagdalena.ejemplo.Entities.Usuario;
 import edu.unimagdalena.ejemplo.Repository.UsuarioRepository;
@@ -29,12 +29,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public UsuarioDto guardarUsuario(UsuarioToSaveDto usuarioDto) {
         Usuario usuario = usuarioMapper.UsuarioToSaveDtoToEntity(usuarioDto);
-        Usuario usuarioGuardado = usuarioRepository.save(usuario);
-        return usuarioMapper.toDto(usuarioGuardado);
+        return usuarioMapper.toDto(usuarioRepository.save(usuario));
     }
 
     @Override
-    public UsuarioDto actualizarUsuario(Long id,UsuarioToSaveDto usuarioDto) throws UsuarioNotFoundException {
+    public UsuarioDto actualizarUsuario(Long id, UsuarioToSaveDto usuarioDto) throws UsuarioNotFoundException {
         return usuarioRepository.findById(id).map(usuario ->{
             usuario.setNombre(usuarioDto.nombre());
             usuario.setApellido(usuarioDto.apellido());

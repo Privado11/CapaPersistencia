@@ -1,4 +1,4 @@
-package edu.unimagdalena.ejemplo.service;
+package edu.unimagdalena.ejemplo.service.usuario;
 
 
 import edu.unimagdalena.ejemplo.dto.usuario.UsuarioDto;
@@ -13,6 +13,5 @@ public interface UsuarioService {
     UsuarioDto buscarUsuarioPorId(Long id) throws UsuarioNotFoundException;
     UsuarioDto buscarUsuarioPorEmail(String email) throws UsuarioNotFoundException;
     void removerUsuario(Long id);
-
     List<UsuarioDto> getAllUser();
 }

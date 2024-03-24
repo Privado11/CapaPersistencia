@@ -7,6 +7,7 @@ import edu.unimagdalena.ejemplo.Entities.Usuario;
 import edu.unimagdalena.ejemplo.dto.mensaje.MensajeDto;
 import edu.unimagdalena.ejemplo.dto.partidas.PartidaDto;
 import edu.unimagdalena.ejemplo.dto.sugerencia.SugerenciaDto;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.processing.Generated;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-03-20T22:35:49-0500",
+    date = "2024-03-23T18:54:25-0500",
     comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.37.0.v20240206-1609, environment: Java 17.0.10 (Eclipse Adoptium)"
 )
 @Component
@@ -52,6 +53,7 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         usuario.email( usuarioToSaveDto.email() );
         usuario.id( usuarioToSaveDto.id() );
         usuario.nombre( usuarioToSaveDto.nombre() );
+        usuario.password( usuarioToSaveDto.password() );
         usuario.username( usuarioToSaveDto.username() );
 
         return usuario.build();
@@ -94,6 +96,7 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         Mensaje.MensajeBuilder mensaje = Mensaje.builder();
 
         mensaje.contenido( mensajeDto.contenido() );
+        mensaje.createAt( mensajeDto.createAt() );
         mensaje.destinatario( mensajeDto.destinatario() );
         mensaje.id( mensajeDto.id() );
 
@@ -182,7 +185,9 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         id = sugerencia.getId();
         descripcion = sugerencia.getDescripcion();
 
-        SugerenciaDto sugerenciaDto = new SugerenciaDto( id, descripcion );
+        LocalDateTime createAt = null;
+
+        SugerenciaDto sugerenciaDto = new SugerenciaDto( id, descripcion, createAt );
 
         return sugerenciaDto;
     }
@@ -208,12 +213,14 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         Long id = null;
         String destinatario = null;
         String contenido = null;
+        LocalDateTime createAt = null;
 
         id = mensaje.getId();
         destinatario = mensaje.getDestinatario();
         contenido = mensaje.getContenido();
+        createAt = mensaje.getCreateAt();
 
-        MensajeDto mensajeDto = new MensajeDto( id, destinatario, contenido );
+        MensajeDto mensajeDto = new MensajeDto( id, destinatario, contenido, createAt );
 
         return mensajeDto;
     }

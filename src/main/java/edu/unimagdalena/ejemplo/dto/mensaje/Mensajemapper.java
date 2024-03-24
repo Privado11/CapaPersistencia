@@ -9,4 +9,5 @@ public interface Mensajemapper {
     
     Mensaje toEntity(MensajeDto mensajeDto);
     MensajeDto toDto(Mensaje mensaje);
+    Mensaje mensajeToSaveDtoToEntity(MensajeToSaveDto mensajeDto);
 }

@@ -1,11 +1,12 @@
 package edu.unimagdalena.ejemplo.dto.mensaje;
 
 import edu.unimagdalena.ejemplo.Entities.Mensaje;
+import java.time.LocalDateTime;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-03-20T22:35:49-0500",
+    date = "2024-03-23T18:54:26-0500",
     comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.37.0.v20240206-1609, environment: Java 17.0.10 (Eclipse Adoptium)"
 )
 public class MensajemapperImpl implements Mensajemapper {
@@ -19,6 +20,7 @@ public class MensajemapperImpl implements Mensajemapper {
         Mensaje.MensajeBuilder mensaje = Mensaje.builder();
 
         mensaje.contenido( mensajeDto.contenido() );
+        mensaje.createAt( mensajeDto.createAt() );
         mensaje.destinatario( mensajeDto.destinatario() );
         mensaje.id( mensajeDto.id() );
 
@@ -34,13 +36,32 @@ public class MensajemapperImpl implements Mensajemapper {
         Long id = null;
         String destinatario = null;
         String contenido = null;
+        LocalDateTime createAt = null;
 
         id = mensaje.getId();
         destinatario = mensaje.getDestinatario();
         contenido = mensaje.getContenido();
+        createAt = mensaje.getCreateAt();
 
-        MensajeDto mensajeDto = new MensajeDto( id, destinatario, contenido );
+        MensajeDto mensajeDto = new MensajeDto( id, destinatario, contenido, createAt );
 
         return mensajeDto;
+    }
+
+    @Override
+    public Mensaje mensajeToSaveDtoToEntity(MensajeToSaveDto mensajeDto) {
+        if ( mensajeDto == null ) {
+            return null;
+        }
+
+        Mensaje.MensajeBuilder mensaje = Mensaje.builder();
+
+        mensaje.contenido( mensajeDto.contenido() );
+        mensaje.createAt( mensajeDto.createAt() );
+        mensaje.destinatario( mensajeDto.destinatario() );
+        mensaje.id( mensajeDto.id() );
+        mensaje.usuario( mensajeDto.usuario() );
+
+        return mensaje.build();
     }
 }
